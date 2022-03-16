@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users List</title>
+    <!--<link rel="stylesheet" href="../static/css/admin_userslist.css">-->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/admin_userslist_common.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Win</th>
+                    <th>Lose</th>
+                    <th>Level</th>
+                    <th>System Language</th>
+                    <th>Day</th>
+                    <th>Total Day</th>
+                    <th>Second</th>
+                    <th>Minute</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in _data %}
+                <tr>
+                    <td>
+                        {% if info[0] == '' %}
+                            Null
+                        {% else %}
+                            {{info[0]}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if info[2] == '' %}
+                            Null
+                        {% else %}
+                            {{info[2]}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if info[3] == '' %}
+                            Null
+                        {% else %}
+                            {{info[3]}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if info[4] == '' %}
+                            Null
+                        {% else %}
+                            {{info[4]}}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if info[5] == '' %}
+                            Null
+                        {% else %}
+                            {{info[5]}}
+                        {% endif %}   
+                    </td>
+                    <td>
+                        {% if info[6] == '' %}
+                            Null
+                        {% else %}
+                            {{info[6]}}
+                        {% endif %}   
+                    </td>
+                    <td>
+                        {% if info[7] == '' %}
+                            Null
+                        {% else %}
+                            {{info[7]}}
+                        {% endif %}   
+                    </td>
+                    <td>
+                        {% if info[8] == '' %}
+                            Null
+                        {% else %}
+                            {{info[8]}}
+                        {% endif %}   
+                    </td>
+                    <td>
+                        {% if info[9] == '' %}
+                            Null
+                        {% else %}
+                            {{info[9]}}
+                        {% endif %}   
+                    </td>
+                    <td>
+                        {% if info[10] == '' %}
+                            Null
+                        {% else %}
+                            {{info[10]}}
+                        {% endif %}   
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div> 
+
+    <button class="generatePdf" onclick="generatePDF()">Download PDF</button>
+    <script src="../static/js/generatePDF.js"></script>
+</body>
+</html>
